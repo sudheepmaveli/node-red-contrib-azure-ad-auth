@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contrib-azure-auth",
+  "name": "node-red-contrib-azure-ad-auth",
   "version": "0.1.5",
   "description": "Azure authentication Node",
   "main": "index.js",

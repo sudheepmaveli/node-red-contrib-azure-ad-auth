@@ -12,7 +12,7 @@
   },
   "keywords": [
     "node-red",
-    "socket.io"
+    "azure-auth"
   ],
   "author": "Sudheepmaveli",
   "license": "MIT",

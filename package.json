@@ -1,14 +1,14 @@
 {
-  "name": "node-red-contrib-socketio-client-with-dynamic-listener-emitter",
-  "version": "0.1.5",
-  "description": "Node Red client to work with socket.io server",
+  "name": "node-red-contrib-azure-auth",
+  "version": "0.0.1",
+  "description": "Node Red client to work azure authentication",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-socketio-client-with-dynamic-listener-emitter.git"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth.git"
   },
   "keywords": [
     "node-red",
@@ -17,9 +17,9 @@
   "author": "Sudheepmaveli",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-socketio-client-with-dynamic-listener-emitter/issues"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth/issues"
   },
-  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-socketio-client-with-dynamic-listener-emitter#readme",
+  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth#readme",
   "dependencies": {
     "socket.io-client": "^1.7.2"
   },

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth.git"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth.git"
   },
   "keywords": [
     "node-red",
@@ -17,9 +17,9 @@
   "author": "Sudheepmaveli",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth/issues"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth/issues"
   },
-  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth#readme",
+  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth#readme",
   "node-red": {
     "nodes": {
       "azure-auth": "azure-auth/http-in-ad-auth.js"

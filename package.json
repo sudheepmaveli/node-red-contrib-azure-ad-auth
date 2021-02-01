@@ -1,14 +1,14 @@
 {
   "name": "node-red-contrib-azure-auth",
-  "version": "0.0.1",
-  "description": "Node Red client to work azure authentication",
+  "version": "0.1.5",
+  "description": "Azure authentication Node",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth.git"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth.git"
   },
   "keywords": [
     "node-red",
@@ -17,15 +17,18 @@
   "author": "Sudheepmaveli",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth/issues"
+    "url": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth/issues"
   },
-  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth#readme",
-  "dependencies": {
-    "socket.io-client": "^1.7.2"
-  },
+  "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-auth#readme",
   "node-red": {
     "nodes": {
-      "socketio-client": "socketio-client/socketio-dynamic-client.js"
+      "azure-auth": "azure-auth/http-in-ad-auth.js"
     }
+  },
+  "dependencies": {
+    "@azure/msal-node": "^1.0.0-alpha.9",
+    "express": "^4.17.1",
+    "node-red": "^1.2.7",
+    "uuid": "^8.3.1"
   }
 }

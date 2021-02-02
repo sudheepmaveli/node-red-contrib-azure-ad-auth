@@ -18,6 +18,7 @@ module.exports = function(RED) {
 
 		RED.httpNode.get(this.url, function(req, res){
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
+				node.send(response);
 				res.redirect(response);
 			});
 		});

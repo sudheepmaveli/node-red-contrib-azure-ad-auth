@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-azure-ad-auth",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Azure authentication Node",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,8 @@
   "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth#readme",
   "node-red": {
     "nodes": {
-      "azure-auth": "azure-auth/azure-ad-auth.js",
-	  "azure-config": "azure-config/azure-config.js"
+      "azure-auth": "./azure-auth/azure-ad-auth.js",
+	  "azure-config": "./config/azure-config.js"
     }
   },
   "dependencies": {

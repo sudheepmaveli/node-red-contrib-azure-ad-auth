@@ -22,7 +22,7 @@
   "homepage": "https://github.com/sudheepmaveli/node-red-contrib-azure-ad-auth#readme",
   "node-red": {
     "nodes": {
-      "azure-auth": "azure-auth/http-in-ad-auth.js"
+      "azure-auth": "azure-auth/azure-ad-auth.js"
     }
   },
   "dependencies": {

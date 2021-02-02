@@ -2,6 +2,7 @@ module.exports = function(RED) {
 	const express = require("express");
 	const app = express();
 	function AzureAdAuth(n) {
+		var node = this;
 		RED.nodes.createNode(this, n);
 		// Retrieve the config node
 		//azure-ad config

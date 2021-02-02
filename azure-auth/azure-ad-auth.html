@@ -9,7 +9,7 @@
     </div>
 	<div class="form-row">
         <label for="node-input-redirectUrl"><i class="fa fa-globe"></i>Redirect URL</label>
-        <input id="node-input-redirectUrl" type="text" placeholder="/redirect url">
+        <input id="node-input-redirectUrl" type="text" placeholder="Redirect url">
     </div>
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
@@ -26,7 +26,7 @@
                 config: {value:"", type:"azure-config", required: true},
                 name: { value: "" },
                 url: { value: "", required: true },
-				redirectUrl: { value: "", required: true }
+                redirectUrl: { value: "", required: true }
             },
             inputs: 0,
             outputs: 1,
@@ -46,16 +46,7 @@
                     }
                     return "[" + this.method + "] " + root;
                 } else if (this.redirectUrl) {
-                    var root = RED.settings.httpNodeRoot;
-                    if (root.slice(-1) != "/") {
-                        root = root + "/";
-                    }
-                    if (this.redirectUrl.charAt(0) == "/") {
-                        root += this.redirectUrl.slice(1);
-                    } else {
-                        root += this.redirectUrl;
-                    }
-                    return "[" + this.method + "] " + root;
+                    return this.redirectUrl;
                 }else {
                     return "http";
                 }

@@ -6,13 +6,14 @@ module.exports = function(RED) {
 		// Retrieve the config node
 		//azure-ad config
 		this.url= n.url;
+		this.redirectUrl= n.redirectUrl;
 		const configNode = RED.nodes.getNode(n.config);
 		const pca = configNode.pca;
 
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
 			scopes: ["user.read"],
-			redirectUri: n.redirectUrl,
+			redirectUri: this.redirectUrl,
 		};
 
 		RED.httpNode.get(this.url, function(req, res){

@@ -1,17 +1,26 @@
 module.exports = function(RED) {
-	function AzureAdAuth(config) {
-		RED.nodes.createNode(this,config);
-
+	const express = require("express");
+	const app = express();
+	function AzureAdAuth(n) {
+		RED.nodes.createNode(this, n);
 		// Retrieve the config node
-		this.server = RED.nodes.getNode(config.server);
+		//azure-ad config
+		this.url= n.url;
+		const configNode = RED.nodes.getNode(n.config);
+		const pca = configNode.pca;
 
-		if (this.server) {
-			// Do something with:
-			//  this.server.host
-			//  this.server.port
-		} else {
-			// No config node configured
-		}
+		// Create Express App and Routes
+		const authCodeUrlParameters = {
+			scopes: ["user.read"],
+			redirectUri: n.redirectUrl,
+		};
+
+		RED.httpNode.get(this.url, function(req, res){
+			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
+				res.redirect(response);
+			});
+		});
 	}
+
 	RED.nodes.registerType("azure-ad-auth",AzureAdAuth);
 }

@@ -1,0 +1,25 @@
+<script type="text/javascript">
+    RED.nodes.registerType('azure-config',{
+        category: 'config',
+        defaults: {
+            clientId: { value: "", required: true },
+            clientSecret: { value: "", required: true },
+            authority: { value: "", required: true }
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="azure-config">
+    <div class="form-row">
+        <label for="node-config-input-client-id"><i class="fa fa-tag"></i> Client Id</label>
+        <input type="text" id="node-config-input-client-id" placeholder="Client Id">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-client-Secret"><i class="fa fa-tag"></i> Client Secret</label>
+        <input type="text" id="node-config-input-client-Secret" placeholder="Client Secret">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-client-authority"><i class="fa fa-tag"></i>Authority</label>
+        <input type="text" id="node-config-input-client-authority" placeholder="Authority">
+    </div>
+</script>

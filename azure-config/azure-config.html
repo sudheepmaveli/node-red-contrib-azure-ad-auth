@@ -2,14 +2,22 @@
     RED.nodes.registerType('azure-config',{
         category: 'config',
         defaults: {
+            name: { value: "", required: true },
             clientId: { value: "", required: true },
             clientSecret: { value: "", required: true },
             authority: { value: "", required: true }
+        },
+        label: function () {
+            return this.name
         }
     });
 </script>
 
 <script type="text/html" data-template-name="azure-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="friendly name">
+    </div>
     <div class="form-row">
         <label for="node-config-input-client-id"><i class="fa fa-tag"></i> Client Id</label>
         <input type="text" id="node-config-input-client-id" placeholder="Client Id">

@@ -23,7 +23,7 @@
             category: 'network',
             color: "#35afe8",
             defaults: {
-                server: {value:"", type:"azure-config"},
+                server: {value:"", type:"azure-config", required: true},
                 name: { value: "" },
                 url: { value: "", required: true },
 				redirectUrl: { value: "", required: true }
@@ -79,5 +79,20 @@
             }
 
         });
+        var headerTypes = [
+            { value: "content-type", label: "Content-Type", hasValue: false },
+            { value: "location", label: "Location", hasValue: false },
+            { value: "other", label: RED._("node-red:httpin.label.other"), icon: "red/images/typedInput/az.png" }
+        ]
+        var contentTypes = [
+            { value: "application/json", label: "application/json", hasValue: false },
+            { value: "application/xml", label: "application/xml", hasValue: false },
+            { value: "text/css", label: "text/css", hasValue: false },
+            { value: "text/html", label: "text/html", hasValue: false },
+            { value: "text/plain", label: "text/plain", hasValue: false },
+            { value: "image/gif", label: "image/gif", hasValue: false },
+            { value: "image/png", label: "image/png", hasValue: false },
+            { value: "other", label: RED._("node-red:httpin.label.other"), icon: "red/images/typedInput/az.png" }
+        ];
      })();
 </script>

@@ -21,7 +21,7 @@ module.exports = function (RED) {
 
 	const SERVER_PORT = process.env.PORT || 3000;
 	
-function HTTPInAzureAdAuth(config) {
+function AzureAdAuth(config) {
     RED.nodes.createNode(this,config);
     // node-specific code goes here
 	if (RED.settings.httpNodeRoot !== false) {
@@ -117,5 +117,5 @@ function HTTPInAzureAdAuth(config) {
 
 }
 
-RED.nodes.registerType("http-in-azure-ad-auth",HTTPInAzureAdAuth);
+RED.nodes.registerType("http-in-azure-ad-auth",AzureAdAuth);
 }

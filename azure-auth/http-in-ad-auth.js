@@ -70,10 +70,10 @@ function HTTPInAzureAdAuth(config) {
 		// Create Express App and Routes
 		const app = express();
 	app.get('/', (req, res) => {
-		console.log(JSON.stringify(res));
-		const authCodeUrlParameters = {
-			scopes: ["user.read"],
-        redirectUri: "http://localhost:1880/ui",
+	console.log(JSON.stringify(res));
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: this.redirectUrl
     };
 
     // get url to sign user in and consent to scopes needed for application
@@ -81,13 +81,13 @@ function HTTPInAzureAdAuth(config) {
 		console.log(JSON.stringify(response));
         res.redirect(response);
     }).catch((error) => console.log(JSON.stringify(error)));
-	);
+});
 
 	app.get('/redirect', (req, res) => {
 		const tokenRequest = {
 			code: req.query.code,
 			scopes: ["user.read"],
-			redirectUri: this.redirectUrl,
+			redirectUri: this.redirectUrl
 		};
 
 		pca.acquireTokenByCode(tokenRequest).then((response) => {

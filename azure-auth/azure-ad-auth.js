@@ -24,16 +24,19 @@ module.exports = function(RED) {
 		};
 
 		RED.httpNode.get(this.url, function(req, res){
-			//pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
-			//	node.send(response);
-			//	node.send(response);
-				//res.redirect(response);
-			//});
-
-			pca.acquireToken(acquireTokenParameters).then(function(response) {
+			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
 				node.send(response);
-				//res.redirect(response);
+				const req = {
+					code: response.code
+				};
+				pca.acquireToken(acquireTokenParameters,req).then(function(response) {
+					node.send(response);
+					//res.redirect(response);
+				});
+				res.redirect(response);
 			});
+
+
 			//pca.acquireToken
 		});
 	}

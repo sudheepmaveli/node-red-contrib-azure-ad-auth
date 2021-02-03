@@ -14,14 +14,27 @@ module.exports = function(RED) {
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
 			scopes: ["user.read"],
-			redirectUri: this.redirectUrl,
+			redirectUri: this.redirectUrl
+		};
+
+		// Create Express App and Routes
+		const acquireTokenParameters = {
+			authenticationScheme: "Bearer",
+			redirectUri: this.redirectUrl
 		};
 
 		RED.httpNode.get(this.url, function(req, res){
-			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
+			//pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
+			//	node.send(response);
+			//	node.send(response);
+				//res.redirect(response);
+			//});
+
+			pca.acquireToken(acquireTokenParameters).then(function(response) {
 				node.send(response);
-				res.redirect(response);
+				//res.redirect(response);
 			});
+			//pca.acquireToken
 		});
 	}
 

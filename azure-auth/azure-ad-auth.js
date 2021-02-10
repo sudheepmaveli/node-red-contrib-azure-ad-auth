@@ -13,10 +13,16 @@ module.exports = function(RED) {
 		node.clientId = configNode.clientId;
 		node.clientSecret = configNode.clientSecret;
 
+		var myDict = new Dict({
+		    "clientId": configNode.clientId,
+		    "clientSecret": configNode.clientSecret,
+		    "redirectUrl": n.redirectUrl
+		});
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
 			scopes: ["user.read"],
-			redirectUri: node.redirectUrl
+			redirectUri: node.redirectUrl,
+			extraQueryParameters :myDict
 		};
 
 

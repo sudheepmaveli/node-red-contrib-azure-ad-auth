@@ -24,11 +24,12 @@ module.exports = function(RED) {
 		RED.httpNode.get(this.url, function(req, res){
 			
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {	
-				response["clientId"] = node.clientId;
-				response["redirectUrl"] = node.redirectUrl;
-				response["clientSecret"] = node.clientSecret;
-
-				res.redirect(response);
+				var resp={};
+				resp["clientId"] = node.clientId;
+				resp["redirectUrl"] = node.redirectUrl;
+				resp["clientSecret"] = node.clientSecret;
+console.log(response);
+				res.redirect(resp);
 			});
 			//pca.acquireToken
 		});

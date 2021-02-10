@@ -10,19 +10,11 @@ module.exports = function(RED) {
 		node.redirectUrl= n.redirectUrl;
 		const configNode = RED.nodes.getNode(n.config);
 		const pca = configNode.pca;
-		node.clientId = configNode.clientId;
-		node.clientSecret = configNode.clientSecret;
 
-		var myDict = {
-		    "clientId": configNode.clientId,
-		    "clientSecret": configNode.clientSecret,
-		    "redirectUrl": n.redirectUrl
-		};
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
 			scopes: ["user.read"],
-			redirectUri: node.redirectUrl,
-			extraQueryParameters :myDict
+			redirectUri: node.redirectUrl
 		};
 
 
@@ -30,9 +22,6 @@ module.exports = function(RED) {
 		RED.httpNode.get(this.url, function(req, res){
 			
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {	
-				req.query["clientId"] = node.clientId;
-				req.query["redirectUrl"] = node.redirectUrl;
-				req.query["clientSecret"] = node.clientSecret;
 				res.redirect(response);
 			});
 			//pca.acquireToken

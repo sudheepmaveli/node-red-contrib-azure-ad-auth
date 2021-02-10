@@ -10,6 +10,8 @@ module.exports = function(RED) {
 		this.redirectUrl= n.redirectUrl;
 		const configNode = RED.nodes.getNode(n.config);
 		const pca = configNode.pca;
+		this.clientId = configNode.clientId;
+		this.clientSecret = configNode.clientSecret;
 
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
@@ -17,22 +19,23 @@ module.exports = function(RED) {
 			redirectUri: this.redirectUrl
 		};
 
-		// Create Express App and Routes
-		const acquireTokenParameters = {
-			authenticationScheme: "Bearer",
-			redirectUri: this.redirectUrl
-		};
+
 
 		RED.httpNode.get(this.url, function(req, res){
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
-				node.send(response);
-				const req = {
-					code: response.code
-				};
-				pca.acquireToken(acquireTokenParameters,req).then(function(response) {
-					node.send(response);
-					//res.redirect(response);
-				});
+				response.clientId = this.clientId;
+				response.clientSecret = this.clientSecret;
+				////node.send(res);
+				//node.send(response);
+				//// Create Express App and Routes
+				////const acquireTokenParameters = {
+				////	code: response.code,
+				////	redirectUri: this.redirectUrl
+				////};
+				////pca.acquireTokenByCode(acquireTokenParameters).then(function(response) {
+				////	node.send(response);
+				////	res.redirect(response);
+				////});
 				res.redirect(response);
 			});
 

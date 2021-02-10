@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-azure-ad-auth",
-  "version": "3.1.12",
+  "version": "3.1.13",
   "description": "Azure authentication Node",
   "main": "index.js",
   "scripts": {

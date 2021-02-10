@@ -7,24 +7,24 @@ module.exports = function(RED) {
 		// Retrieve the config node
 		//azure-ad config
 		this.url= n.url;
-		this.redirectUrl= n.redirectUrl;
+		var redirectUrl= n.redirectUrl;
 		const configNode = RED.nodes.getNode(n.config);
 		const pca = configNode.pca;
-		this.clientId = configNode.clientId;
-		this.clientSecret = configNode.clientSecret;
+		var clientId = configNode.clientId;
+		var clientSecret = configNode.clientSecret;
 
 		// Create Express App and Routes
 		const authCodeUrlParameters = {
 			scopes: ["user.read"],
-			redirectUri: this.redirectUrl
+			redirectUri: redirectUrl
 		};
 
 
 
 		RED.httpNode.get(this.url, function(req, res){
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
-				response.clientId = this.clientId;
-				response.clientSecret = this.clientSecret;
+				response.clientId = clientId;
+				response.clientSecret = clientSecret;
 				////node.send(res);
 				//node.send(response);
 				//// Create Express App and Routes

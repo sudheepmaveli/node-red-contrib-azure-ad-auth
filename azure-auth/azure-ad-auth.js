@@ -22,9 +22,10 @@ module.exports = function(RED) {
 
 
 		RED.httpNode.get(this.url, function(req, res){
-			res.data.clientId = node.clientId;
-			res.data.redirectUrl = node.redirectUrl;
-			res.data.clientSecret = node.clientSecret;
+			res.cfg = {};
+			res.cfg.clientId = node.clientId;
+			res.cfg.redirectUrl = node.redirectUrl;
+			res.cfg.clientSecret = node.clientSecret;
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {			
 				res.redirect(response);
 			});

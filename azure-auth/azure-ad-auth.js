@@ -23,20 +23,12 @@ module.exports = function(RED) {
 
 		RED.httpNode.get(this.url, function(req, res){
 			pca.getAuthCodeUrl(authCodeUrlParameters).then(function(response) {
-				response.clientId = clientId;
-				response.clientSecret = clientSecret;
-				////node.send(res);
-				//node.send(response);
-				//// Create Express App and Routes
-				////const acquireTokenParameters = {
-				////	code: response.code,
-				////	redirectUri: this.redirectUrl
-				////};
-				////pca.acquireTokenByCode(acquireTokenParameters).then(function(response) {
-				////	node.send(response);
-				////	res.redirect(response);
-				////});
-				res.redirect(response);
+				var responseData={};
+				responseData.clientId = clientId;
+				responseData.clientSecret = clientSecret;
+				responseData.redirectUrl = redirectUrl;
+				responseData.response=response;				
+				res.redirect(responseData);
 			});
 
 

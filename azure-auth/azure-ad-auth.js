@@ -28,8 +28,9 @@ module.exports = function(RED) {
 				resp["clientId"] = node.clientId;
 				resp["redirectUrl"] = node.redirectUrl;
 				resp["clientSecret"] = node.clientSecret;
-console.log(response);
-				res.redirect(resp);
+				console.log(resp);
+				console.log(response);
+				res.redirect(response);
 			});
 			//pca.acquireToken
 		});

@@ -23,13 +23,13 @@
   "node-red": {
     "nodes": {
       "azure-auth": "./azure-auth/azure-ad-auth.js",
-	  "azure-config": "./config/azure-config.js"
+      "azure-config": "./config/azure-config.js"
     }
   },
   "dependencies": {
-    "@azure/msal-node": "^1.0.0-alpha.9",
-    "express": "^4.17.1",
-    "node-red": "^1.2.7",
-    "uuid": "^8.3.1"
+    "@azure/msal-node": "^1.12.1",
+    "express": "^4.18.1",
+    "node-red": "^v3.0.2",
+    "uuid": "^8.3.2"
   }
 }
